@@ -1,0 +1,19 @@
+#!/bin/bash
+# Start backend CLI with virtual environment activated
+
+# Get the directory where this script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd "$SCRIPT_DIR"
+
+# Activate virtual environment
+if [ -d "venv" ]; then
+    source venv/bin/activate
+else
+    echo "Error: Virtual environment not found. Please create it first:"
+    echo "  python3.12 -m venv venv"
+    exit 1
+fi
+
+# Run the CLI in interactive mode
+python cli.py
+
